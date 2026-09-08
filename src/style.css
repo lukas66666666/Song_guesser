@@ -1,0 +1,109 @@
+:root {
+    --primary: hsl(259, 43%, 50%);
+
+    --primary-bg: hsl(259, 20%, 30%);
+    --bg-dark: hsl(240, 5%, 5%);
+    --bg: hsl(240, 5%, 10%);
+    --bg-light: hsl(240, 5%, 15%);
+    --text: hsl(0, 0%, 90%);
+    --text-muted: hsl(0, 0%, 70%);
+    --border: hsl(0, 0%, 30%);
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+header {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    height: 84%;
+}
+
+h1 {
+    margin: 0;
+    color: var(--primary);
+    text-align: center;
+    font-size: 3rem;
+}
+
+#searchContainer {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    flex-direction: column;
+}
+
+#songInput {
+    width: 40%;
+    height: 20%;
+    background: linear-gradient(to top, var(--bg), var(--bg-light));
+    border: solid 3px var(--primary);
+    border-radius: 15px;
+    text-indent: 5%;
+    color: var(--text-muted);
+}
+#songInput:focus {
+    outline: none;
+    color: var(--text);
+}
+#songInput::placeholder {
+    color: var(--text-muted);
+}
+
+#submitBtn {
+    width: 10%;
+    height: 25%;
+    background: linear-gradient(to top, var(--bg), var(--bg-light));
+    border: solid 3px var(--primary);
+    border-radius: 15px;
+    color: var(--text);
+}
+#submitBtn:hover {
+    background: var(--primary-bg);
+}
+#submitBtn:active {
+    background: var(--primary);
+}
+
+#results {
+    height: 70%;
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+
+.result {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top right, var(--bg), var(--bg-light));
+    border: solid 3px var(--border);
+    border-radius: 15px;
+}
+
+.resultImg {
+    width: 60%;
+    height: auto;
+    margin-top: 5%;
+}
+
+.resultName {
+    color: var(--text);
+}
+
+.resultArtist {
+    color: var(--text-muted);
+}
