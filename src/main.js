@@ -21,6 +21,28 @@ submitBtn.addEventListener("click", function (){
                 </div>
                 `
             }
+            document.getElementById("allResultsBtn").style.display = "block"
+            for (let i=0; i < data.response.hits.length; i++){
+                let songName = data.response.hits[i].result.title
+                let songArtist = data.response.hits[i].result.primary_artist.name
+                let songImage = data.response.hits[i].result.song_art_image_thumbnail_url
+                let place = i + 1
+                document.getElementById("allResults").innerHTML += `
+                <div class="resultAll" id="resultAll${i}">
+                    <p class="resultPlace">${place}</p>
+                    <img src="${songImage}" class="resultImgAll">
+                    <p class="resultNameAll">${songName}</p>
+                    <p class="resultArtistAll">${songArtist}</p>
+                </div>
+                `
+            }
         })
 })
 
+document.getElementById("allResultsBtn").addEventListener("click", function (){
+    document.getElementById("allResultsContainer").style.display = "block"
+})
+
+document.getElementById("closeBtn").addEventListener("click", function (){
+    document.getElementById("allResultsContainer").style.display = "none"
+})
