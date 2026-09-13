@@ -38,7 +38,7 @@ h1 {
     color: var(--primary);
     text-align: center;
     font-size: 3rem;
-    font-family: "Bricolage Grotesque", sans-serif;
+    font-family: "Fraunces", sans-serif;
 }
 
 #searchContainer {
@@ -59,6 +59,7 @@ h1 {
     text-indent: 5%;
     color: var(--text-muted);
     box-shadow: 4px 4px 10px var(--bg-light);
+    font-family: "Inter", sans-serif;
 }
 #songInput:focus {
     outline: none;
@@ -66,6 +67,7 @@ h1 {
 }
 #songInput::placeholder {
     color: var(--text-muted);
+    font-family: "Inter", sans-serif;
 }
 
 #submitBtn {
@@ -76,6 +78,7 @@ h1 {
     border-radius: 15px;
     color: var(--text);
     box-shadow: 4px 4px 10px var(--bg-light);
+    font-family: "Inter", sans-serif;
 }
 #submitBtn:hover {
     background: var(--primary-bg);
@@ -115,11 +118,13 @@ h1 {
     margin-top: 7%;
     margin-bottom: 0;
     font-size: 1.2rem;
+    font-family: "Inter", sans-serif;
 }
 
 .resultArtist {
     color: var(--text-muted);
     margin-top: 2%;
+    font-family: "IBM Plex Mono", sans-serif;
 }
 
 #result1, #result2 {
@@ -179,7 +184,8 @@ h1 {
     right: 0;
     background: none;
     border: none;
-    font-size: 1rem;
+    font-size: 2rem;
+    font-weight: 100;
 }
 #closeBtn:hover {
     color: var(--text);
@@ -188,18 +194,20 @@ h1 {
 #allResults {
     display: flex;
     flex-direction: column;
-    width: 95%;
-    height: 95%;
+    gap: 2%;
+    width: 97.5%;
+    height: 94%;
     margin-top: 5%;
     margin-left: 2.5%;
     overflow-y: scroll;
+    scrollbar-color: var(--bg-light) transparent;
 }
 
 .resultAll {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 90%;
+    width: 95%;
     height: 15%;
     background-color: var(--bg-light);
     border: solid 3px var(--border);
@@ -217,9 +225,23 @@ h1 {
 
 .resultArtistAll {
     color: var(--text-muted);
+    margin-left: 9%;
+    font-family: "IBM Plex Mono";
 }
 
 .resultPlace {
+    width: 5%;
     font-size: 2rem;
-    margin-right: 5%;
+    margin: 0 5%;
+}
+
+.resultNameAll {
+    margin-left: 5%;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.resultTextAll {
+    width: 50%;
 }

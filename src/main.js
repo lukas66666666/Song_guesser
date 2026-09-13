@@ -8,6 +8,7 @@ submitBtn.addEventListener("click", function (){
         .then(data => {
             console.log(data)
             document.getElementById("results").innerHTML = ""
+            document.getElementById("allResults").innerHTML = ""
             for (let i=0; i < 3; i++){
                 let songName = data.response.hits[i].result.title
                 let songArtist = data.response.hits[i].result.primary_artist.name
@@ -31,8 +32,10 @@ submitBtn.addEventListener("click", function (){
                 <div class="resultAll" id="resultAll${i}">
                     <p class="resultPlace">${place}</p>
                     <img src="${songImage}" class="resultImgAll">
-                    <p class="resultNameAll">${songName}</p>
-                    <p class="resultArtistAll">${songArtist}</p>
+                    <div class="resultTextAll">
+                        <p class="resultNameAll">${songName}</p>
+                        <p class="resultArtistAll">${songArtist}</p>
+                    </div>
                 </div>
                 `
             }
