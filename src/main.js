@@ -2,6 +2,7 @@ const submitBtn = document.getElementById("submitBtn")
 
 submitBtn.addEventListener("click", function (){
     let input = document.getElementById("songInput").value
+    document.getElementById("placeholder").style.display = "flex"
 
     fetch(`/api/search-song?q=${encodeURIComponent(input)}`)
         .then(response => response.json())
@@ -43,9 +44,9 @@ submitBtn.addEventListener("click", function (){
 })
 
 document.getElementById("allResultsBtn").addEventListener("click", function (){
-    document.getElementById("allResultsContainer").style.display = "block"
+    document.getElementById("bgBlur").style.display = "block"
 })
 
 document.getElementById("closeBtn").addEventListener("click", function (){
-    document.getElementById("allResultsContainer").style.display = "none"
+    document.getElementById("bgBlur").style.display = "none"
 })
