@@ -31,7 +31,7 @@ submitBtn.addEventListener("click", function (){
                 let place = i + 1
                 document.getElementById("allResults").innerHTML += `
                 <div class="resultAll" id="resultAll${i}">
-                    <p class="resultPlace">${place}</p>
+                    <p class="resultPlace" id="resultPlace${i}">${place}</p>
                     <img src="${songImage}" class="resultImgAll">
                     <div class="resultTextAll">
                         <p class="resultNameAll">${songName}</p>

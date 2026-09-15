@@ -29,10 +29,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 main {
     height: 85vh;
+}
+
+header p {
+    color: var(--primary-bg);
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 5px;
+    text-shadow: 0 4px 7px var(--bg-light);
 }
 
 h1 {
@@ -41,6 +52,7 @@ h1 {
     text-align: center;
     font-size: 3rem;
     font-family: "Fraunces", sans-serif;
+    text-shadow: 0 5px 10px var(--bg);
 }
 
 #searchContainer {
@@ -128,6 +140,16 @@ h1 {
     margin-top: 5%;
     background-color: var(--bg-light);
     border-radius: 15px;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: var(--bg-light);
+    }
+    100% {
+        background-color: var(--bg-dark);
+    }
 }
 
 .resultName {
@@ -144,6 +166,7 @@ h1 {
     margin-bottom: 0;
     border-radius: 15px;
     background-color: var(--bg-light);
+    animation: skeleton-loading 1s linear infinite alternate;
 }
 
 .resultArtist {
@@ -157,6 +180,7 @@ h1 {
     margin-top: 2%;
     border-radius: 15px;
     background-color: var(--bg-light);
+    animation: skeleton-loading 1s linear infinite alternate;
 }
 .lowerResult {
     margin-top: 5%;
@@ -248,6 +272,28 @@ h1 {
     background-color: var(--bg-light);
     border: solid 3px var(--border);
     border-radius: 15px;
+}
+
+#resultAll0 {
+    border-color: var(--gold);
+}
+#resultPlace0 {
+    color: var(--gold);
+}
+
+
+#resultAll1 {
+    border-color: var(--silver);
+}
+#resultPlace1 {
+    color: var(--silver);
+}
+
+#resultAll2 {
+    border-color: var(--bronze);
+}
+#resultPlace2 {
+    color: var(--bronze);
 }
 
 .resultNameAll, .resultPlace {
