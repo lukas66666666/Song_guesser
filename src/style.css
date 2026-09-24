@@ -1,6 +1,7 @@
 :root {
     --primary: hsl(259, 43%, 50%);
     --primary-bg: hsl(259, 20%, 30%);
+    --primary-subtle: hsl(259, 35%, 48%);
     --bg-dark: hsl(240, 5%, 5%);
     --bg: hsl(240, 5%, 10%);
     --bg-light: hsl(240, 5%, 15%);
@@ -15,6 +16,21 @@
     --bronze-shadow: hsl(32, 61%, 34%);
     --blur-dark: hsla(240, 6%, 10%, 0.7);
     --blur-light: hsl(240, 5%, 15%, 0.6);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg);
+}
+*::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+*::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-subtle);
 }
 
 body {
@@ -37,13 +53,14 @@ main {
 }
 
 header p {
-    color: var(--primary-bg);
+    color: var(--primary-subtle);
     margin: 0;
     font-family: "Inter", sans-serif;
     font-size: 1rem;
     font-weight: 500;
     margin-top: 5px;
     text-shadow: 0 4px 7px var(--bg-light);
+    text-align: center;
 }
 
 h1 {
@@ -69,7 +86,7 @@ h1 {
     height: 20%;
     background: linear-gradient(to top, var(--bg), var(--bg-light));
     border: solid 3px var(--primary);
-    border-radius: 15px;
+    border-radius: 999px;
     text-indent: 5%;
     color: var(--text-muted);
     box-shadow: 4px 4px 10px var(--bg-light);
@@ -82,6 +99,7 @@ h1 {
 #songInput::placeholder {
     color: var(--text-muted);
     font-family: "Inter", sans-serif;
+    font-size: auto;
 }
 
 #submitBtn {
@@ -89,10 +107,11 @@ h1 {
     height: 25%;
     background: linear-gradient(to top, var(--bg), var(--bg-light));
     border: solid 3px var(--primary);
-    border-radius: 15px;
+    border-radius: 999px;
     color: var(--text);
     box-shadow: 4px 4px 10px var(--bg-light);
     font-family: "Inter", sans-serif;
+    font-size: auto;
 }
 #submitBtn:hover {
     background: var(--primary-bg);
@@ -119,18 +138,24 @@ h1 {
 }
 
 .result, .placeholderResult {
-    width: 20%;
+    width: clamp(200px, 20%, 275px);
     height: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background: linear-gradient(to top right, var(--bg), var(--bg-light));
     border: solid 3px var(--border);
     border-radius: 15px;
 }
+.placeholderResult {
+    justify-content: center;
+    gap: 10%;
+}
 
 .resultImg {
-    width: 60%;
+    width: 50%;
+    max-width: 125px;
     height: auto;
     margin-top: 5%;
 }
@@ -153,8 +178,9 @@ h1 {
 }
 
 .resultName {
+    height: fit-content;
     color: var(--text);
-    margin-top: 7%;
+    margin-top: 5%;
     margin-bottom: 0;
     font-size: 1.2rem;
     font-family: "Inter", sans-serif;
@@ -170,8 +196,10 @@ h1 {
 }
 
 .resultArtist {
+    height: fit-content;
     color: var(--text-muted);
     margin-top: 2%;
+    margin-bottom: 5%;
     font-family: "IBM Plex Mono", sans-serif;
 }
 .placeholderArtist {
@@ -206,6 +234,30 @@ h1 {
     border-color: var(--bronze);
     box-shadow: 0px 2px 10px var(--bronze-shadow);
 }
+
+.playResult {
+    background: var(--primary-subtle);
+    border: solid 5px var(--primary);
+    border-radius: 999px;
+    width: auto;
+    aspect-ratio: 1/1;
+    margin-bottom: 3%;
+}
+.playResult:hover {
+    background-color: var(--primary);
+}
+.playResult:active {
+    transform: translateY(3px);
+}
+
+.playAll {
+    margin-left: 7%;
+    margin-bottom: 0;
+}
+
+.playResult .pauseIcon { display: none; }
+.playResult.playing .playIcon { display: none; }
+.playResult.playing .pauseIcon { display: block; }
 
 #allResultsBtn {
     display: none;
@@ -336,4 +388,114 @@ h1 {
     width: 100%;
     height: 100vh;
     background: linear-gradient(to top, var(--blur-dark), var(--blur-light));
+}
+
+
+@media (max-width: 700px) {
+    body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    h1 {
+        width: 80%;
+        height: auto;
+        margin-top: 0;
+    }
+    header p {
+        width: 80%;
+        margin-top: 0;
+    }
+    #songInput {
+        width: 80%;
+        height: 20%;
+    }
+    #submitBtn {
+        width: 30%;
+    }
+    #results, #placeholder, #allResults {
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+        gap: 5vh;
+    }
+    .result, .placeholderResult, .resultAll {
+        width: 75%;
+        max-width: 300px;
+        height: 50vh;
+    }
+    .lower {
+        margin-top: 0;
+    }
+    #result1, #result2 {
+        margin-top: 0
+    }#result1 {
+        order: 0;
+    }
+    #allResultsBtn {
+        position: static;
+        align-self: center;
+        width: 100%;
+        margin-top: 5%;
+    }
+    #bgBlur {
+        position: static;
+        background: transparent;
+    }
+    #resultAll0, #resultAll1, #resultAll2 {
+        display: none;
+    }
+    #allResultsContainer {
+        position: static;
+        background: transparent;
+        border: none;
+        width: 100%;
+        height: auto;
+        justify-self: center;
+        justify-content: center;
+        gap: 5vh;
+        scrollbar-width: none;
+        overflow-y: hidden;
+        margin-top: 5%;
+    }
+    #allResults {
+        width: 75%;
+        overflow-y: hidden;
+        justify-self: center;
+        margin: 0;
+    }
+    .resultAll {
+        width: 98%;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .resultPlace {
+        display: none;
+    }
+    .resultImgAll {
+        width: 50%;
+        max-width: 125px;
+        height: auto;
+        margin-top: 5%;
+    }
+    .resultNameAll {
+        height: fit-content;
+        color: var(--text);
+        margin-top: 5%;
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        font-family: "Inter", sans-serif;
+        text-align: center;
+    }
+    .resultArtistAll {
+        height: fit-content;
+        color: var(--text-muted);
+        margin-top: 2%;
+        margin-bottom: 5%;
+        font-family: "IBM Plex Mono", sans-serif;
+        text-align: center;
+    }
+    .playAll {
+        margin-left: 0;
+        margin-bottom: 3%;
+    }
 }
